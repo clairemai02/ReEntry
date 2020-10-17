@@ -127,6 +127,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baN-YU-OhY">
+                                <rect key="frame" x="92" y="165" width="231" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Resources near me "/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ra4-TW-dSI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -202,6 +207,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXC-Ww-DOt">
+                                <rect key="frame" x="92" y="156" width="231" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Resources near me "/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GTt-vx-2GI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -227,6 +237,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSz-G0-8fV">
+                                <rect key="frame" x="92" y="163" width="231" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Resources near me "/>
+                                <connections>
+                                    <action selector="ResourcesNM:" destination="Wnd-cc-IjT" eventType="touchUpInside" id="5n7-mx-i3k"/>
+                                    <segue destination="vlC-45-dsJ" kind="show" identifier="MHmap" id="R53-Gf-nzJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bmo-tq-LtP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -234,11 +253,53 @@
                     <navigationItem key="navigationItem" id="q3k-5j-9rb"/>
                     <connections>
                         <outlet property="MHLabel" destination="bQO-f8-cFG" id="5i6-KO-dLU"/>
+                        <outlet property="ResourcesNM" destination="aSz-G0-8fV" id="Ybz-Yu-enT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yQ0-Mp-Gcy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="979.71014492753636" y="-993.08035714285711"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="GN8-FR-rxb">
+            <objects>
+                <viewController id="vlC-45-dsJ" customClass="MHMapViewController" customModule="ReEntry" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="chL-8m-cNf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qDC-tP-PfI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="602"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjk-dx-Swb">
+                                <rect key="frame" x="80" y="628" width="142" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ima-l1-DHu">
+                                <rect key="frame" x="80" y="673" width="142" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="02i-hi-lXs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LZJ-oY-QYR"/>
+                    <connections>
+                        <outlet property="addressLabel" destination="ima-l1-DHu" id="N2q-tz-9ax"/>
+                        <outlet property="distanceLabel" destination="yjk-dx-Swb" id="4U1-1v-cmk"/>
+                        <outlet property="mapView" destination="qDC-tP-PfI" id="ev4-kA-Q8X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OQb-X7-crT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1757.9710144927537" y="-993.08035714285711"/>
         </scene>
     </scenes>
     <resources>

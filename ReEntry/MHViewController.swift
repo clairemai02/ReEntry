@@ -9,6 +9,7 @@ import UIKit
 
 class MHViewController: UIViewController {
 
+    @IBOutlet weak var ResourcesNM: UIButton!
     @IBOutlet weak var MHLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +17,10 @@ class MHViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func ResourcesNM(_ sender: Any) {
+        self.performSegue(withIdentifier: "MHmap", sender: self)
+    }
+    
     /*
     // MARK: - Navigation
 

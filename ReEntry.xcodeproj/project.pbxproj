@@ -20,6 +20,7 @@
 		75B597BA252FB188008F8022 /* HSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B597B9252FB188008F8022 /* HSViewController.swift */; };
 		75B597BF252FB3B9008F8022 /* PHViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B597BE252FB3B9008F8022 /* PHViewController.swift */; };
 		75B597C4252FB4F1008F8022 /* FSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B597C3252FB4F1008F8022 /* FSViewController.swift */; };
+		D20356BB253B6C940063B473 /* MHMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20356BA253B6C940063B473 /* MHMapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		75B597B9252FB188008F8022 /* HSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSViewController.swift; sourceTree = "<group>"; };
 		75B597BE252FB3B9008F8022 /* PHViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHViewController.swift; sourceTree = "<group>"; };
 		75B597C3252FB4F1008F8022 /* FSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSViewController.swift; sourceTree = "<group>"; };
+		D20356BA253B6C940063B473 /* MHMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHMapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				75B597B9252FB188008F8022 /* HSViewController.swift */,
 				75B597BE252FB3B9008F8022 /* PHViewController.swift */,
 				75B597C3252FB4F1008F8022 /* FSViewController.swift */,
+				D20356BA253B6C940063B473 /* MHMapViewController.swift */,
 			);
 			path = ReEntry;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				75B5977D252FA8F3008F8022 /* AppDelegate.swift in Sources */,
 				75B5977F252FA8F3008F8022 /* SceneDelegate.swift in Sources */,
 				75B597B5252FB028008F8022 /* CCViewController.swift in Sources */,
+				D20356BB253B6C940063B473 /* MHMapViewController.swift in Sources */,
 				75B597BA252FB188008F8022 /* HSViewController.swift in Sources */,
 				75B597BF252FB3B9008F8022 /* PHViewController.swift in Sources */,
 			);
