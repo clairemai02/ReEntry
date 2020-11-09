@@ -8,21 +8,32 @@
 import UIKit
 
 class MHViewController: UIViewController {
+    var locationName = ""
 
     @IBOutlet weak var ResourcesNM: UIButton!
     @IBOutlet weak var MHLabel: UILabel!
-    override func viewDidLoad() {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
     @IBAction func ResourcesNM(_ sender: Any) {
+        locationName = "therapist"
         self.performSegue(withIdentifier: "MHmap", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            let mapVC = segue.destination as! MHMapViewController
+            mapVC.locationName = locationName
+        }
+    
+    
+     @IBAction func MHMapsButton(_ sender: Any) {
+        
+     }
     /*
-    // MARK: - Navigation
+     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

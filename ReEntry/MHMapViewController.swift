@@ -16,6 +16,11 @@ class MHMapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     var locationManager = CLLocationManager()
+    var userLocation = CLLocation()
+    var closestLocation : CLLocation? = nil
+    var minDistance : CLLocationDistance = 0.0
+    var closestLocationAddress = ""
+    var locationName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,64 +41,81 @@ class MHMapViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        let userLocation = locations[0]
+        self.userLocation = locations[0]
         
-        let coordinates = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        let coordinates = CLLocationCoordinate2D(latitude: self.userLocation.coordinate.latitude, longitude: self.userLocation.coordinate.longitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.075, longitudeDelta: 0.075)
         //smaller latitutdeDelta means more zoomed in. Center map based on user's location
         let region = MKCoordinateRegion(center: coordinates, span: span)
         
         mapView.setRegion(region, animated: true)
         
-        locationManager.stopUpdatingLocation()
-        findNearestMHResource(userLocation: userLocation, name: "Mental Health")
+        findNearestMHResource()
     }
     
-    func findNearestMHResource(userLocation: CLLocation, name: String) {
+    func findNearestMHResource() {
         let searchRequest = MKLocalSearch.Request()
         //Query for restaurants near user's location
-        searchRequest.naturalLanguageQuery = name
+        searchRequest.naturalLanguageQuery = "\(locationName)"
         
         //Set Region of search request to region of map
-        searchRequest.region = self.mapView.region
+        searchRequest.region = mapView.region
         
         let search = MKLocalSearch(request: searchRequest)
         
-        search.start{ (response, error) in
+        search.start(completionHandler: {(response, error) in
             //guard lets you cast a value to response that could be nil, make sure a place exists
-            guard let response = response else {
-                print("we had an error finding a nearby mental health resource.")
-                return
-            }
-            
-            print(response.mapItems.count)
-            var finalPlace = response.mapItems[0]
-            var distance = CLLocationDistance(exactly: 1000000.0)
-            
-            for place in response.mapItems {
-                let placemarkLocation = CLLocation(latitude: place.placemark.coordinate.latitude, longitude: place.placemark.coordinate.longitude)
-                
-                //check if location's distance is less than current distance. If it is, change the finalPlace and distance - find optimal distance
-                if userLocation.distance(from: placemarkLocation) < distance! {
-                    finalPlace = place
-                    distance = userLocation.distance(from: placemarkLocation)
-                }
-            
-            }
-            self.addAnnotation(mapItem: finalPlace)
-            //We are unsure of how to update the distance and address labels with the correct information. self.distanceLabel.text = "\(distance ?? 0)"
+            if error != nil {
+                            print("An error occurred")
+                        } else if response!.mapItems.count == 0 {
+                            print("No matches found")
+                        } else {
+                            print("Matches found")
+                            print(self.userLocation)
+                            for place in response!.mapItems {
+                                print(place.placemark.coordinate.latitude)
+                                print(place.placemark.coordinate.longitude)
+                                let placemark = CLLocation(latitude: place.placemark.coordinate.latitude, longitude: place.placemark.coordinate.longitude)
+                                if self.closestLocation == nil {
+                                    self.closestLocation = placemark
+                                    self.minDistance = self.userLocation.distance(from: placemark)
+                                    self.closestLocationAddress = place.placemark.subThoroughfare! + " " + place.placemark.thoroughfare! + " " + place.placemark.locality! + " " + place.placemark.administrativeArea!
+                                }
+                                else if self.minDistance >  self.userLocation.distance(from: placemark) {
+                                    self.closestLocation = placemark
+                                    self.minDistance = self.userLocation.distance(from: placemark)
+                                    self.closestLocationAddress = place.placemark.subThoroughfare! + " " + place.placemark.thoroughfare! + " " + place.placemark.locality! + " " + place.placemark.administrativeArea!
+                                }
+                                
+                            }
+                            self.addAnnotation()
+                            self.updateView()
+                        }
+                    })
         }
+                            
 
-    }
-    
-    func addAnnotation(mapItem: MKMapItem) {
+    func addAnnotation() {
         let annotation = MKPointAnnotation()
-        annotation.coordinate = mapItem.placemark.coordinate
-        annotation.title = mapItem.name
+        annotation.coordinate = self.closestLocation!.coordinate
+        annotation.title = "\(locationName)"
         self.mapView.addAnnotation(annotation)
         
     }
-
+    
+    func updateView() {
+            addressLabel.text = closestLocationAddress
+            distanceLabel.text = "\(minDistance) meters"
+        }
+    
+    
+    @IBAction func MHOpenInMaps(_ sender: Any) {
+        let coords = closestLocation!.coordinate
+        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coords))
+        mapItem.name = "\(locationName)"
+        mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
+    }
+    
     /*
     // MARK: - Navigation
 
