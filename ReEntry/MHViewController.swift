@@ -19,7 +19,7 @@ class MHViewController: UIViewController {
     }
     
     @IBAction func ResourcesNM(_ sender: Any) {
-        locationName = "therapist"
+        locationName = "mental health facility"
         self.performSegue(withIdentifier: "MHmap", sender: self)
     }
     

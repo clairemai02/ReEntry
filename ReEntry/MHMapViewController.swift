@@ -11,8 +11,10 @@ import MapKit
 class MHMapViewController: UIViewController, CLLocationManagerDelegate {
 
     
-    @IBOutlet weak var distanceLabel: UILabel!
+
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
     var locationManager = CLLocationManager()
@@ -21,6 +23,7 @@ class MHMapViewController: UIViewController, CLLocationManagerDelegate {
     var minDistance : CLLocationDistance = 0.0
     var closestLocationAddress = ""
     var locationName = ""
+    var selectedPlacemarkName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +76,7 @@ class MHMapViewController: UIViewController, CLLocationManagerDelegate {
                             print("Matches found")
                             print(self.userLocation)
                             for place in response!.mapItems {
+                                print(place.name)
                                 print(place.placemark.coordinate.latitude)
                                 print(place.placemark.coordinate.longitude)
                                 let placemark = CLLocation(latitude: place.placemark.coordinate.latitude, longitude: place.placemark.coordinate.longitude)
@@ -84,6 +88,7 @@ class MHMapViewController: UIViewController, CLLocationManagerDelegate {
                                 else if self.minDistance >  self.userLocation.distance(from: placemark) {
                                     self.closestLocation = placemark
                                     self.minDistance = self.userLocation.distance(from: placemark)
+                                    self.selectedPlacemarkName = place.name ?? ""
                                     self.closestLocationAddress = place.placemark.subThoroughfare! + " " + place.placemark.thoroughfare! + " " + place.placemark.locality! + " " + place.placemark.administrativeArea!
                                 }
                                 
@@ -98,21 +103,22 @@ class MHMapViewController: UIViewController, CLLocationManagerDelegate {
     func addAnnotation() {
         let annotation = MKPointAnnotation()
         annotation.coordinate = self.closestLocation!.coordinate
-        annotation.title = "\(locationName)"
+        annotation.title = "\(selectedPlacemarkName)"
         self.mapView.addAnnotation(annotation)
         
     }
     
     func updateView() {
             addressLabel.text = closestLocationAddress
-            distanceLabel.text = "\(minDistance) meters"
+        nameLabel.text = self.selectedPlacemarkName
+        distanceLabel.text = "\(Int(minDistance * 0.000621371)) miles away"
         }
     
     
     @IBAction func MHOpenInMaps(_ sender: Any) {
         let coords = closestLocation!.coordinate
         let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coords))
-        mapItem.name = "\(locationName)"
+        mapItem.name = "\(closestLocationAddress)"
         mapItem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
     }
     

@@ -8,14 +8,25 @@
 import UIKit
 
 class FSViewController: UIViewController {
-
-    override func viewDidLoad() {
+    var locationName = ""
+    @IBOutlet weak var FSLabel: UILabel!
+    @IBOutlet weak var ResourcesNM: UIButton!
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
 
+    @IBAction func ResourcesNM(_ sender: Any) {
+        locationName = "food pantry"
+        self.performSegue(withIdentifier: "FSMap", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            let mapVC = segue.destination as! MHMapViewController
+            mapVC.locationName = locationName
+        }
     /*
     // MARK: - Navigation
 

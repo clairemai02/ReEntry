@@ -131,12 +131,20 @@
                                 <rect key="frame" x="92" y="165" width="231" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Resources near me "/>
+                                <connections>
+                                    <action selector="ResourcesNM:" destination="597-iS-dXZ" eventType="touchUpInside" id="Xp1-2S-1yx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ra4-TW-dSI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="hoo-fu-aN8"/>
+                    <connections>
+                        <outlet property="HSLabel" destination="Asw-TW-2T5" id="6gu-rd-WXi"/>
+                        <outlet property="ResourcesNM" destination="baN-YU-OhY" id="CIB-i9-JTM"/>
+                        <segue destination="vlC-45-dsJ" kind="show" identifier="HSMap" id="vbD-uo-7Jc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4z7-ss-XfV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -157,11 +165,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJe-3o-QKA">
+                                <rect key="frame" x="141" y="209" width="132" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Resources near me"/>
+                                <connections>
+                                    <action selector="ResourcesNM:" destination="dy5-UQ-TYo" eventType="touchUpInside" id="Hdk-dA-Y4b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hm1-f6-eFZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="R9w-bB-bq8"/>
+                    <connections>
+                        <outlet property="PHLabel" destination="9gj-M4-bdg" id="TDB-ux-CyS"/>
+                        <outlet property="ResourcesNM" destination="pJe-3o-QKA" id="QK6-3P-1WF"/>
+                        <segue destination="vlC-45-dsJ" kind="show" identifier="PHMap" id="H1d-mz-lkA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EtI-V4-Btd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -182,11 +203,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bIG-cI-owx">
+                                <rect key="frame" x="141" y="211" width="132" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Resources near me"/>
+                                <connections>
+                                    <action selector="ResourcesNM:" destination="cnZ-m6-0bd" eventType="touchUpInside" id="cC5-J3-WDx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VLl-ok-jjT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="J0J-Ot-xHU"/>
+                    <connections>
+                        <outlet property="FSLabel" destination="lql-yC-wRp" id="xT4-8S-unv"/>
+                        <outlet property="ResourcesNM" destination="bIG-cI-owx" id="wwb-lQ-8sL"/>
+                        <segue destination="vlC-45-dsJ" kind="show" identifier="FSMap" id="yWv-PK-378"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VBO-eM-3db" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -211,31 +245,24 @@
                                 <rect key="frame" x="92" y="156" width="231" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Resources near me "/>
+                                <connections>
+                                    <action selector="ResourcesNM:" destination="5af-D0-CDU" eventType="touchUpInside" id="D1J-45-NcA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GTt-vx-2GI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="J2c-rH-fKg"/>
+                    <connections>
+                        <outlet property="CCLabel" destination="ThM-ja-rTu" id="xwW-4g-M5I"/>
+                        <outlet property="ResourcesNM" destination="kXC-Ww-DOt" id="lc7-Vc-6zL"/>
+                        <segue destination="vlC-45-dsJ" kind="show" identifier="CCMap" id="RDr-Sr-Si2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jcY-Oi-03z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="979.71014492753636" y="-305.35714285714283"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="PiG-IZ-hlE">
-            <objects>
-                <viewController id="x92-Ao-G44" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8Qp-YQ-SDN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Bpg-0f-BET"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IW2-7a-vYm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1742" y="-305"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="zIi-Nh-xbB">
@@ -287,15 +314,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="602"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance: " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjk-dx-Swb">
-                                <rect key="frame" x="20" y="628" width="366" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ima-l1-DHu">
-                                <rect key="frame" x="20" y="673" width="366" height="21"/>
+                                <rect key="frame" x="20" y="675" width="366" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -309,6 +329,20 @@
                                     <action selector="MHOpenInMaps:" destination="vlC-45-dsJ" eventType="touchUpInside" id="cDK-iD-RaM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aF-H4-NV2">
+                                <rect key="frame" x="26" y="714" width="362" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjk-dx-Swb">
+                                <rect key="frame" x="24" y="637" width="366" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="02i-hi-lXs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -316,15 +350,19 @@
                     <navigationItem key="navigationItem" id="LZJ-oY-QYR"/>
                     <connections>
                         <outlet property="addressLabel" destination="ima-l1-DHu" id="N2q-tz-9ax"/>
-                        <outlet property="distanceLabel" destination="yjk-dx-Swb" id="4U1-1v-cmk"/>
+                        <outlet property="distanceLabel" destination="3aF-H4-NV2" id="mNv-65-KWW"/>
                         <outlet property="mapView" destination="qDC-tP-PfI" id="ev4-kA-Q8X"/>
+                        <outlet property="nameLabel" destination="yjk-dx-Swb" id="Y7o-dv-gNs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OQb-X7-crT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1757.9710144927537" y="-993.08035714285711"/>
+            <point key="canvasLocation" x="2279.7101449275365" y="381.69642857142856"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yWv-PK-378"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

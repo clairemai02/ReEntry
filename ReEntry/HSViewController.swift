@@ -8,14 +8,25 @@
 import UIKit
 
 class HSViewController: UIViewController {
-
-    override func viewDidLoad() {
+    var locationName = ""
+    @IBOutlet weak var HSLabel: UILabel!
+    @IBOutlet weak var ResourcesNM: UIButton!
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
 
+    @IBAction func ResourcesNM(_ sender: Any) {
+        locationName = "homeless shelter"
+        self.performSegue(withIdentifier: "HSMap", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            let mapVC = segue.destination as! MHMapViewController
+            mapVC.locationName = locationName
+        }
     /*
     // MARK: - Navigation
 

@@ -8,14 +8,26 @@
 import UIKit
 
 class PHViewController: UIViewController {
-
-    override func viewDidLoad() {
+    
+    var locationName = ""
+    @IBOutlet weak var PHLabel: UILabel!
+    @IBOutlet weak var ResourcesNM: UIButton!
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func ResourcesNM(_ sender: Any) {
+        locationName = "public housing"
+        self.performSegue(withIdentifier: "PHMap", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            let mapVC = segue.destination as! MHMapViewController
+            mapVC.locationName = locationName
+        }
+    
     /*
     // MARK: - Navigation
 
