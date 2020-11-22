@@ -273,6 +273,30 @@
                                     <action selector="ResourcesNM:" destination="5af-D0-CDU" eventType="touchUpInside" id="D1J-45-NcA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYa-mA-0vj">
+                                <rect key="frame" x="159" y="341" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Federal Loans"/>
+                                <connections>
+                                    <action selector="FederalLoansLink:" destination="5af-D0-CDU" eventType="touchUpInside" id="48g-50-qWa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LY4-qL-SZT">
+                                <rect key="frame" x="125" y="396" width="164" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Community College Info"/>
+                                <connections>
+                                    <action selector="CCInfoLink:" destination="5af-D0-CDU" eventType="touchUpInside" id="Aoh-ra-my3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rP8-xB-6fU">
+                                <rect key="frame" x="123" y="444" width="168" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Online Degree Programs"/>
+                                <connections>
+                                    <action selector="OnlineDegreeLink:" destination="5af-D0-CDU" eventType="touchUpInside" id="RqD-Qz-rTU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GTt-vx-2GI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -418,7 +442,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yWv-PK-378"/>
+        <segue reference="RDr-Sr-Si2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
