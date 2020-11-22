@@ -76,6 +76,7 @@ class MHMapViewController: UIViewController, CLLocationManagerDelegate {
                             print("Matches found")
                             print(self.userLocation)
                             for place in response!.mapItems {
+                                print(place.placemark.subThoroughfare! + " " + place.placemark.thoroughfare! + " " + place.placemark.locality! + " " + place.placemark.administrativeArea!)
                                 print(place.name)
                                 print(place.placemark.coordinate.latitude)
                                 print(place.placemark.coordinate.longitude)
@@ -83,12 +84,13 @@ class MHMapViewController: UIViewController, CLLocationManagerDelegate {
                                 if self.closestLocation == nil {
                                     self.closestLocation = placemark
                                     self.minDistance = self.userLocation.distance(from: placemark)
+                                    self.selectedPlacemarkName = place.name!
                                     self.closestLocationAddress = place.placemark.subThoroughfare! + " " + place.placemark.thoroughfare! + " " + place.placemark.locality! + " " + place.placemark.administrativeArea!
                                 }
-                                else if self.minDistance >  self.userLocation.distance(from: placemark) {
+                                else if self.minDistance > self.userLocation.distance(from: placemark) && place.name != nil {
                                     self.closestLocation = placemark
                                     self.minDistance = self.userLocation.distance(from: placemark)
-                                    self.selectedPlacemarkName = place.name ?? ""
+                                    self.selectedPlacemarkName = place.name!
                                     self.closestLocationAddress = place.placemark.subThoroughfare! + " " + place.placemark.thoroughfare! + " " + place.placemark.locality! + " " + place.placemark.administrativeArea!
                                 }
                                 
