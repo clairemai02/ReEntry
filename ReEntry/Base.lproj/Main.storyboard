@@ -205,10 +205,34 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bIG-cI-owx">
                                 <rect key="frame" x="141" y="211" width="132" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Resources near me"/>
                                 <connections>
                                     <action selector="ResourcesNM:" destination="cnZ-m6-0bd" eventType="touchUpInside" id="cC5-J3-WDx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8N-td-HSw">
+                                <rect key="frame" x="149" y="462" width="117" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Hunger Hotline"/>
+                                <connections>
+                                    <action selector="hungerHotline:" destination="cnZ-m6-0bd" eventType="touchUpInside" id="Z3Q-VP-5ca"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTg-nw-90J">
+                                <rect key="frame" x="151" y="532" width="112" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Food Pantry"/>
+                                <connections>
+                                    <action selector="foodPantry:" destination="cnZ-m6-0bd" eventType="touchUpInside" id="7Um-lT-fPN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkY-EK-5Uf">
+                                <rect key="frame" x="160" y="606" width="95" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Food Bank"/>
+                                <connections>
+                                    <action selector="foodBank:" destination="cnZ-m6-0bd" eventType="touchUpInside" id="6Tb-Sj-AvZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -394,7 +418,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="R53-Gf-nzJ"/>
+        <segue reference="yWv-PK-378"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
