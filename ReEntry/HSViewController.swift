@@ -27,6 +27,24 @@ class HSViewController: UIViewController {
             let mapVC = segue.destination as! MHMapViewController
             mapVC.locationName = locationName
         }
+    
+    @IBAction func HomelessShelterDirectoryLink(_ sender: Any) {
+        if let url = URL(string: "https://www.homelessshelterdirectory.org/") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @IBAction func NationalCoalitionLink(_ sender: Any) {
+        if let url = URL(string: "https://nationalhomeless.org/references/need-help/") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @IBAction func NationalAllianceLink(_ sender: Any) {
+        if let url = URL(string: "https://endhomelessness.org/how-to-get-help-experiencing-homelssness/ ") {
+            UIApplication.shared.open(url)
+        }
+    }
     /*
     // MARK: - Navigation
 
