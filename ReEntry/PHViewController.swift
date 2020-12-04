@@ -28,8 +28,25 @@ class PHViewController: UIViewController {
             mapVC.locationName = locationName
         }
     
+    @IBAction func section8(_ sender: Any) {
+        if let url = URL(string: "https://www.hud.gov/topics/housing_choice_voucher_program_section_8") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @IBAction func affordableHousing(_ sender: Any) {
+        if let url = URL(string: "https://www.usa.gov/finding-home") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+     @IBAction func federalHousing(_ sender: Any) {
+        if let url = URL(string: "https://www.hud.gov/topics/rental_assistance/phprog") {
+            UIApplication.shared.open(url)
+        }
+     }
     /*
-    // MARK: - Navigation
+     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
